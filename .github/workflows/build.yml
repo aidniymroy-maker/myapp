@@ -18,20 +18,20 @@ jobs:
         with:
           python-version: "3.10"
 
-      - name: Install system dependencies
+      - name: Install dependencies
         run: |
           sudo apt update
           sudo apt install -y \
             git zip unzip openjdk-17-jdk \
             python3-pip autoconf libtool \
-            pkg-config zlib1g-dev libncurses5-dev \
-            libncursesw5-dev libtinfo5 cmake \
+            pkg-config zlib1g-dev cmake \
             libffi-dev libssl-dev
 
       - name: Install Buildozer
         run: |
           pip install --upgrade pip
-          pip install buildozer cython==0.29.33
+          pip install cython==0.29.33
+          pip install buildozer
 
       - name: Build APK
         run: |

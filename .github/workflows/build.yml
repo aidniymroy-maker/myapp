@@ -25,13 +25,23 @@ jobs:
             git zip unzip openjdk-17-jdk \
             python3-pip autoconf libtool \
             pkg-config zlib1g-dev cmake \
-            libffi-dev libssl-dev
+            libffi-dev libssl-dev wget
 
       - name: Install Buildozer
         run: |
           pip install --upgrade pip
           pip install cython==0.29.33
           pip install buildozer
+
+      - name: Accept Android licenses
+        run: |
+          mkdir -p ~/.android
+          touch ~/.android/repositories.cfg
+          yes | sdkmanager --licenses || true
+
+      - name: Install Android build tools
+        run: |
+          sdkmanager "platform-tools" "platforms;android-33" "build-tools;33.0.2"
 
       - name: Build APK
         run: |

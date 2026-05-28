@@ -24,13 +24,17 @@ android.api = 33
 
 android.minapi = 21
 
-android.sdk = 33
-
 android.ndk = 25b
 
-android.build_tools_version = 33.0.2
+p4a.branch = stable
 
-p4a.branch = master
+p4a.bootstrap = sdl2
+
+android.accept_sdk_license = True
+
+android.skip_update = True
+
+android.sdk_path = /usr/local/lib/android/sdk
 
 
 [buildozer]
